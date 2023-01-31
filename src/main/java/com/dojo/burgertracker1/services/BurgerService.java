@@ -33,21 +33,12 @@ private final BurgerRepository burgerRepository;
         }
     }
 
-    public Burger updateBurger(Long id, String burName, String restauName, Integer rat, String note) {
-        Burger burger = findBurger(id);
-        if (burger == null){
-            return null;
-        }
-        burger.setId(id);
-        burger.setBurgerName(burName);
-        burger.setRestaurantName(restauName);
-        burger.setRating(rat);
-        burger.setNotes(note);
-
+    public Burger updateBurger(Burger burger) {
         return burgerRepository.save(burger);
     }
 
     public void deleteBurger(Long id) {
         burgerRepository.deleteById(id);
     }
+
 }
